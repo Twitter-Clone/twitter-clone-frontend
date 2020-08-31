@@ -4,20 +4,20 @@ This project will utilize two microservices which are the frontend UX/UI and the
 microservices will be deployed from Docker containers and managed using Jenkins for Continuous Integration/Continuous  
 Development. 
 
-### Features
+### FEATURES
 [Team](https://github.com/maknop/twitter-clone-frontend#team)  
 [Micro-services](https://github.com/maknop/twitter-clone-frontend#microservices)  
 [Roles](https://github.com/maknop/twitter-clone-frontend#roles)  
 [Tools](https://github.com/maknop/twitter-clone-frontend#tools)  
 [Milestone](https://github.com/maknop/twitter-clone-frontend#milestones)  
    
-### Team
+### TEAM
 [Matthew Knop](https://github.com/maknop)  
 [Doug Mellon](https://github.com/dougmellon)  
 [Ashley Hart](https://github.com/hart2533)  
 [Sean Strawmatt](https://github.com/sstrawmatt2Git) 
 
-### Microservices  
+### MICROSERVICES  
 https://github.com/maknop/twitter-clone-api  
 https://github.com/maknop/twitter-clone-frontend  
                 
@@ -43,7 +43,3 @@ Github
 5. [Test Complete]()
 6. [Release]()
 7. [First Upgrade]()
-
-### Entity Relational Diagram 
-
-### Data Dictionary
