@@ -1,12 +1,13 @@
 FROM node:13.12.0-alpine
 
-WORKDIR /app
+WORKDIR /usr/src/app
 
-COPY package.json /app
+COPY package*.json ./
 
 RUN npm install -g
 
-COPY . /app
+COPY . .
+
+EXPOSE 3000
 
 CMD ["npm", "start"]
-
