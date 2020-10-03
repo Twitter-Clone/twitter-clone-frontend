@@ -1,13 +1,17 @@
-FROM node:13.12.0-alpine
+FROM node:latest
 
-WORKDIR /usr/src/app
+WORKDIR /app
 
-COPY package*.json ./
+ENV PATH /app/node_modules/.bin:$PATH
 
-RUN npm install -g
+COPY package.json /app
 
-COPY . .
+#RUN npm install -g npm@latest
+RUN npm i yarn
+
+COPY . /app
 
 EXPOSE 3000
 
-CMD ["npm", "start"]
+#CMD ["npm", "start"]
+CMD ["yarn", "serve"]
