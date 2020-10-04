@@ -1,25 +1,27 @@
-import React from 'react';
-import Users from './components/users';
+import React, { Component } from 'react';
+import Contacts from './components/contacts'; // import our contacts component.
 
-class App extends Component {
-    state ={
-        users=[]
+    class App extends Component {
+      // API State - an object that holds data pending to be rendered. This is where we will store the output from the API call.
+      state = {
+        contacts: []
+      }
 
-    }
-
-    componentDidMount(){
-
-        fetch("")
-        .then(res => res.json())
+      // Call the api - using componentDidMount() method. 
+      componentDidMount() {
+        fetch('http://jsonplaceholder.typicode.com/users') // Makes a GET request to the endpoint.
+        .then(res => res.json()) // parses the output to JSON.
         .then((data) => {
-            this.setState({ users: data })
-
+          this.setState({ contacts: data }) // Sets the value of our state to the output from the API call
         })
-        .catch(console.log)
-    }
-  return (
-    <Users users = {this.state.users} />
-  );
-}
+        .catch(console.log) // Logs any error we get to the console.
+      }
 
-export default App;
+      render() {
+        return (
+          <Contacts contacts={this.state.contacts} />
+        );
+      }
+    }
+
+    export default App;
