@@ -9,7 +9,7 @@ import Contacts from './components/contacts'; // import our contacts component.
 
       // Call the api - using componentDidMount() method. 
       componentDidMount() {
-        fetch('http://jsonplaceholder.typicode.com/users') // Makes a GET request to the endpoint.
+        fetch('172.25.0.3/api/tcapi') // Makes a GET request to the endpoint.
         .then(res => res.json()) // parses the output to JSON.
         .then((data) => {
           this.setState({ contacts: data }) // Sets the value of our state to the output from the API call
