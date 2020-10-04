@@ -18,9 +18,10 @@ const Contacts = ({ contacts }) => {
                     <div>
                         <form>
                             <label>Enter your email</label>
-                            <input type="text"/><br><br>
+                            <input type="text"/>
                             <label>Enter your twitter handle</label>
                             <input type="text"/>
+                            <input type="submit" value="Submit" />
                         </form>
                     </div>
                 </div>
