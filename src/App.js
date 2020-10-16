@@ -17,7 +17,7 @@ import Users from './components/users';
       }
 
       componentDidMount() {
-        fetch('http://157.245.160.185:8000/api/tcapi') // fetch the json file being served by our API
+        fetch('http://157.245.160.185:8000/api/users') // fetch the json file being served by our API
         .then(res => res.json()) // takes the data and ensures it is a JSON file and saved in the res (response) variable
         .then((data) => {
           this.setState({ users: data }) // fills in our state object from above with each entry from the JSON
