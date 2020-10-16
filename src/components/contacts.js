@@ -22,6 +22,7 @@ const Contacts = ({ contacts }) => {
             {contacts.map((contact) => (
                 <div class="card">
                     <div class="card-body">
+                        <h1>User</h1>
                         <h5 class="card-title">{contact.twitterhandle}</h5>
                         <h6 class="card-subtitle mb-2 text-muted">{contact.email}</h6>
                     </div>
