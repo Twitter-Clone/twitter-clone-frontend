@@ -1,26 +1,28 @@
-import React, { Component } from 'react';
-import Contacts from './components/contacts'; // import our contacts component.
+import React, {Component} from 'react';
+import Users from './components/users';
 
     class App extends Component {
-      // API State - an object that holds data pending to be rendered. This is where we will store the output from the API call.
+
+      /* A state is just an javascript object that holds any data that is waiting to be
+      sent to the front end and rendered. It will hold our rendered JSON file from the 
+      API server on DigitalOcean */ 
       state = {
-        contacts: []
+        users: []
       }
 
-      // Call the api - using componentDidMount() method. 
-      componentDidMount() {
-        fetch('157.245.160.185:8000/api/tcapi') // Makes a GET request to the endpoint.
-        .then(res => res.json()) // parses the output to JSON.
-        .then((data) => {
-          this.setState({ contacts: data }) // Sets the value of our state to the output from the API call
-        })
-        .catch(console.log) // Logs any error we get to the console.
-      }
-
-      render() {
+      render () {
         return (
-          <Contacts contacts={this.state.contacts} />
-        );
+         <Users users={this.state.users} /> 
+        )
+      }
+
+      componentDidMount() {
+        fetch('http://157.245.160.185:8000/api/tcapi') // fetch the json file being served by our API
+        .then(res => res.json()) // takes the data and ensures it is a JSON file and saved in the res (response) variable
+        .then((data) => {
+          this.setState({ users: data }) // fills in our state object from above with each entry from the JSON
+        })
+        .catch(console.log) // if there is an error, it prints the error to the browser console
       }
     }
 
