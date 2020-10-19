@@ -3,11 +3,12 @@ import React, {Component} from "react";
 export default class Tweets extends Component {
     constructor(props) {
         super(props);
-        this.state = {tweets: []};
+        this.state = {tweets: [], users: []}; 
     }
 
     componentDidMount() {
         this.TweetList();
+        this.UserList();
     }
 
     TweetList() {
@@ -15,6 +16,15 @@ export default class Tweets extends Component {
             .then(res => res.json())
             .then((data) => {
                 this.setState({ tweets: data })
+            })
+            .catch(console.log);
+    }
+
+    UserList() {
+        fetch('http://157.245.160.185:8000/api/users')
+            .then(res => res.json())
+            .then((data) => {
+                this.setState({ users: data })
             })
             .catch(console.log);
     }
@@ -27,8 +37,17 @@ export default class Tweets extends Component {
             </div>
         ));
 
+        const users  = this.state.users.map((item, i) => (
+            <div>
+                <h2>{item.twitterhandle}</h2>
+            </div>
+        ))
+
         return (
-            <div className="">{ tweets }</div>
+            <div>
+                <div className="">{ tweets }</div>
+                <div className="">{ users }</div>
+            </div>
         )
     }
 }
