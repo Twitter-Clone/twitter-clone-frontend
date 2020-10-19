@@ -11,13 +11,16 @@ import { Button } from '@material-ui/core';
 /* import components */
 import SidebarOption from "./SidebarOption";
 
+/* import router */
+import { Link } from 'react-router-dom';
+
 function Sidebar() {
     return (
         <div className="sidebar">
 
             {/* Navigation Menu */}
             <SidebarOption active Icon={HomeIcon} text='Home'/>
-            <SidebarOption Icon={PersonIcon} text='Profile' />
+            <Link to="/profile"><SidebarOption Icon={PersonIcon} text='Profile' /></Link>
             <SidebarOption Icon={GroupIcon} text='Following'/>
             <SidebarOption Icon={SearchIcon} text='Search' />
 
@@ -25,7 +28,7 @@ function Sidebar() {
             <Button variant="outlined" className="sidebar__tweet" fullWidth>Tweet</Button>
 
         </div>
-    )
+    );
 }
 
 export default Sidebar;
