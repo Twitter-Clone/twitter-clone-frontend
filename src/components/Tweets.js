@@ -45,7 +45,9 @@ export default class Tweets extends Component {
 
         return (
             <div>
-                <div className="">{ tweets }</div>
+                <div className="twitterhandle">{ users[0] }</div>
+                    <div className="tweet">{ tweets[0] }</div>
+                <br />
                 <div className="">{ users }</div>
             </div>
         )
