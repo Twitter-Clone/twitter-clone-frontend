@@ -11,7 +11,7 @@ export default class Tweets extends Component {
     }
 
     TweetList() {
-        fetch('http://157.245.160.185:8000/api/posts')
+        fetch('http://0.0.0.0:8000/api/posts')
             .then(res => res.json())
             .then((data) => {
                 this.setState({ tweets: data })
