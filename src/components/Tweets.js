@@ -31,8 +31,8 @@ export default class Tweets extends Component {
 
     render() {
         const tweets = this.state.tweets.map((item, i) => (
-            <div>
-                <h1>{item.userid_id}</h1>
+            <div class="tweet_box">
+                
                 <h2>{item.tweet}</h2>
             </div>
         ));
