@@ -29,5 +29,13 @@
 }
 .tweet_box{
     margin: 10px;
-    
+    padding: 10px;
+}
+
+.tweet_box > p {
+    margin: 20px 0;
+    padding-bottom: 20px;
+    letter-spacing: 1px;
+    font-size: 18px;
+    border-bottom: 1px solid #ccc;
 }
