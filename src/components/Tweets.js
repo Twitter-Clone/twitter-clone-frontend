@@ -29,19 +29,10 @@ export default class Tweets extends Component {
             .catch(console.log);
     }
 
-   
-    GetUsername(prop) {
-        this.state.user.map(function(users, i) {
-            return <h1 key={id}>{users.twitterhandle}</h1>
-        }
-        
-    }
-
     render() {
         const tweets = this.state.tweets.map((item, i) => (
             <div>
                 <div class="tweet_box">
-                    <h2>{this.GetUsername(item.userid_id)}</h2>
                     <p>{item.tweet}</p>
                 </div>
             </div>
