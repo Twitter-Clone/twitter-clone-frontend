@@ -29,20 +29,18 @@ export default class Tweets extends Component {
             .catch(console.log);
     }
 
+    getUserById = (id) => this.state.users.find(({ userid }) => userid === id);
+
+
     render() {
         const tweets = this.state.tweets.map((item, i) => (
             <div>
                 <div class="tweet_box">
+                    <h1>{this.getUserById(item.userid_id)?.twitterhandle}</h1>
                     <p>{item.tweet}</p>
                 </div>
             </div>
         ));
-
-        const users  = this.state.users.map((item, i) => (
-            <div>
-                <h2>{item.twitterhandle}</h2>
-            </div>
-       ))
 
         return (
             <div className="tweet">{ tweets }</div>
