@@ -5,6 +5,7 @@ import React from 'react';
 import './App.css';
 import Sidebar from './components/Sidebar';
 import Feed from './components/Feed';
+import Header from './components/Header'
 
 const Profile = () => {
     return (
@@ -17,8 +18,9 @@ const Profile = () => {
 function App() {
   return (
     <div className="app">
-      <Sidebar />
-      <Feed />
+        <Header />
+        <Sidebar />
+        <Feed />
     </div>
   );
 }
