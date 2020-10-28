@@ -3,6 +3,7 @@
     border-right: 1px solid var(--twitter-background-color);
     min-width: fit-content;
     overflow-y: scroll;
+    background-color: var(--component-background);
 
     /* hide scrollbar for IE, Edge, Firefox*/
     -ms-overflow-style: none;

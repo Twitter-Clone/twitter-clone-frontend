@@ -1,7 +1,13 @@
 body {
+    --main-site-background: #f2f9f9;;
     --twitter-color: #406564;
     --twitter-background-color: #f2f9f9;
     --main-font-color: #0c1414;
+    --sidebar-background-color: #b2dfde;
+    --component-background: #ffffff;
+    --sand-color: #c2b280;
+
+    background-color: var(--main-site-background);
 }
 
 .app {
