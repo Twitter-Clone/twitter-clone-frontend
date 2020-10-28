@@ -1,3 +1,5 @@
+"use strict";
+
 import React from 'react';
 import '../css/TweetBox.css';
 import {Button} from "@material-ui/core";

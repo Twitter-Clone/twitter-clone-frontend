@@ -1,3 +1,5 @@
+"use strict";
+
 import React, {Component} from "react";
 
 // Tweets class to generate tweets with username and tweet.
