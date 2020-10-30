@@ -1,33 +1,23 @@
 "use strict";
 
 import React from 'react';
-
+import { Switch, Route, BrowserRouter } from 'react-router-dom';
 import './App.css';
-import Sidebar from './components/Sidebar';
-import Feed from './components/Feed';
-import Header from './components/Header'
+import Profile from './components/Profile';
+import Homepage from './components/Homepage';
 
-const Profile = () => {
+function App() {
     return (
-        <div className="profile">
-            <h1>"Welcome to your profile page!"</h1>
-        </div>
+        <Switch>
+            <div className="app">
+                <Route path="/" component={ Homepage } />
+                <Route path="/profile"  component={ Profile } />
+            </div>
+        </Switch>
     );
 }
 
-function App() {
-  return (
-    <div className="app">
-        <Header />
-        <Sidebar />
-        <Feed />
-    </div>
-  );
-}
-
 export default App;
-module.export = {
-    Profile 
-};
+
 
 
