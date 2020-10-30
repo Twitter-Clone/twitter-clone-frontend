@@ -11,10 +11,7 @@ import Profile from './components/Profile';
 
 ReactDOM.render( 
     <BrowserRouter>
-        <Switch>
-            <App />
-            <Route path="/profile"  component={ Profile } />
-        </Switch>
+        <App />
     </BrowserRouter>,
     document.getElementById('root')
 );
