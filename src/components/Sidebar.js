@@ -12,6 +12,7 @@ import { Button } from '@material-ui/core';
 
 /* import components */
 import SidebarOption from "./SidebarOption";
+import Profile from './Profile';
 
 /* import router */
 import { Link } from 'react-router-dom';
@@ -22,7 +23,7 @@ function Sidebar() {
 
             {/* Navigation Menu */}
             <SidebarOption active Icon={HomeIcon} text='Home'/>
-            <Link to="/profile"><SidebarOption Icon={PersonIcon} text='Profile' /></Link>
+            <Link to="/profile"><SidebarOption Icon={PersonIcon} text='Profile' component={ Profile } /></Link>
             <SidebarOption Icon={GroupIcon} text='Following'/>
             <SidebarOption Icon={SearchIcon} text='Search' />
 
