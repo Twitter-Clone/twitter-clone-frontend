@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
-import '../css/sidebar.css';
+import '../css/Sidebar.css';
 
 export default function Sidebar() {
     return (
