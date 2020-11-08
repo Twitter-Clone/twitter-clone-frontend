@@ -1,3 +1,7 @@
+* {
+    margin: 0;
+}
+  
 body {
     --main-site-background: #f2f9f9;;
     --twitter-color: #406564;
@@ -6,6 +10,7 @@ body {
     --sidebar-background-color: #b2dfde;
     --component-background: #ffffff;
     --sand-color: #c2b280;
+    --sidebar-link-hover: #e8f5fe;
 
     background-color: var(--main-site-background);
 }
@@ -16,4 +21,14 @@ body {
     margin-right: auto;
     max-width: 1300px;
     padding: 0 10px;
+}
+
+main {
+    max-width: 900px;
+    background: blue;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    grid-template-rows: 1fr;
 }
