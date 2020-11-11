@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Sidebar from './Sidebar';
 import SearchMiddleware from './middleware/SearchMiddleware';
 
@@ -7,7 +7,6 @@ const Search = (props) => {
     const [tweetListDefault, setTweetListDefault] = useState();
     const [tweetList, setTweetList] = useState();
 
-
-
-    
 }
+
+export default Search;
