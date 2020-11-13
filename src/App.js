@@ -1,23 +1,33 @@
-"use strict";
+import React, { Component } from 'react';
 
-import React from 'react';
-import { Switch, Route, BrowserRouter } from 'react-router-dom';
-import './App.css';
+import Home from './components/Home';
 import Profile from './components/Profile';
-import Homepage from './components/Homepage';
+import Following from './components/Following';
+import Search from './components/Search';
+import Nav from './components/Nav';
+import Login from './components/Login';
 
-function App() {
+import './css/main.css';
+
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+} from "react-router-dom";
+
+export default function App() {
     return (
-        <Switch>
-            <div className="app">
-                <Route path="/" component={ Homepage } />
-                <Route path="/profile"  component={ Profile } />
-            </div>
-        </Switch>
-    );
+        <div>
+            <main>
+                <Switch>
+                    <Route path='/' component={Login} exact />
+                    <Route path='/home' component={Home} />
+                    <Route path='/profile' component={Profile} />
+                    <Route path='/following' component={Following} />
+                    <Route path='/search' component={Search} />
+                    <Route component={Error} />
+                </Switch>
+            </main>  
+        </div>
+    )
 }
-
-export default App;
-
-
-

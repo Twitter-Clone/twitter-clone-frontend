@@ -1,37 +1,17 @@
-"use strict";
-
 import React from 'react';
+import {Link} from 'react-router-dom';
+
 import '../css/Sidebar.css';
 
-/* import from material */
-import HomeIcon from '@material-ui/icons/Home';
-import GroupIcon from '@material-ui/icons/Group';
-import SearchIcon from '@material-ui/icons/Search';
-import PersonIcon from '@material-ui/icons/Person';
-import { Button } from '@material-ui/core';
-
-/* import components */
-import SidebarOption from "./SidebarOption";
-import Profile from './Profile';
-
-/* import router */
-import { Link } from 'react-router-dom';
-
-function Sidebar() {
+export default function Sidebar() {
     return (
-        <div className="sidebar">
-
-            {/* Navigation Menu */}
-            <SidebarOption active Icon={HomeIcon} text='Home'/>
-            <Link to="/profile"><SidebarOption Icon={PersonIcon} text='Profile' component={ Profile } /></Link>
-            <SidebarOption Icon={GroupIcon} text='Following'/>
-            <SidebarOption Icon={SearchIcon} text='Search' />
-
-            {/* Button to Tweet */}
-            <Button variant="outlined" className="sidebar__tweet" fullWidth>Tweet</Button>
-
-        </div>
+        <nav>
+            <ul>
+                <li><Link to='/' class='main-nav'>Home</Link></li>
+                <li><Link to='/profile' class='main-nav'>Profile</Link></li>
+                <li><Link to='/following' class='main-nav'>Following</Link></li>
+                <li><Link to='/search' class='main-nav'>Search</Link></li>
+            </ul>
+        </nav>
     );
 }
-
-export default Sidebar;

@@ -1,13 +1,12 @@
-"use strict";
-
 import React from 'react';
 
-function Profile() {
-    return (
-        <div className="profile">
-            <h1>Did it work?</h1>
-        </div>
-    );
-}
+import Sidebar from '../components/Sidebar';
 
-export default Profile;
+export default function Profile(){
+    return (
+        <>
+        <Sidebar />
+        <h1>Profile</h1>
+        </>
+    )
+}
