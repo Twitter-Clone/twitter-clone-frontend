@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 class SignupForm extends React.Component {
   state = {
-    username: '',
+    email: '',
     password: ''
   };
 
@@ -21,11 +21,11 @@ class SignupForm extends React.Component {
     return (
       <form onSubmit={e => this.props.handle_signup(e, this.state)}>
         <h4>Sign Up</h4>
-        <label htmlFor="username">Username</label>
+        <label htmlFor="email">Email</label>
         <input
           type="text"
-          name="username"
-          value={this.state.username}
+          name="email"
+          value={this.state.email}
           onChange={this.handle_change}
         />
         <label htmlFor="password">Password</label>
