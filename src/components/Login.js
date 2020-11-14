@@ -13,9 +13,10 @@ class Login extends Component {
       };
     }
   
+    // http://157.245.160.185:8000/api/users/
     componentDidMount() {
       if (this.state.logged_in) {
-        fetch('http://localhost:8000/tcapi/current_user/', {
+        fetch('http://157.245.160.185:8000/api/current_user/', {
           headers: {
             Authorization: `JWT ${localStorage.getItem('token')}`
           }
@@ -49,7 +50,7 @@ class Login extends Component {
   
     handle_signup = (e, data) => {
       e.preventDefault();
-      fetch('http://localhost:8000/tcapi/users/', {
+      fetch('http://157.245.160.185:8000/api/users/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

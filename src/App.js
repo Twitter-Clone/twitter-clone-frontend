@@ -25,7 +25,6 @@ export default function App() {
                     <Route path='/profile' component={Profile} />
                     <Route path='/following' component={Following} />
                     <Route path='/search' component={Search} />
-                    <Route component={Error} />
                 </Switch>
             </main>  
         </div>
