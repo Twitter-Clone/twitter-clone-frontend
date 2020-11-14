@@ -4,7 +4,7 @@ import Home from './components/Home';
 import Profile from './components/Profile';
 import Following from './components/Following';
 import Search from './components/Search';
-import Nav from './components/Nav';
+
 import Login from './components/Login';
 
 import './css/main.css';
@@ -25,7 +25,6 @@ export default function App() {
                     <Route path='/profile' component={Profile} />
                     <Route path='/following' component={Following} />
                     <Route path='/search' component={Search} />
-                    <Route component={Error} />
                 </Switch>
             </main>  
         </div>

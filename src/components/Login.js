@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Nav from './components/Nav';
-import LoginForm from './components/LoginForm';
-import SignupForm from './components/SignupForm';
+import Nav from './Nav';
+import LoginForm from './LoginForm';
+import SignupForm from './SignupForm';
 
 class Login extends Component {
     constructor(props) {
@@ -9,20 +9,21 @@ class Login extends Component {
       this.state = {
         displayed_form: '',
         logged_in: localStorage.getItem('token') ? true : false,
-        username: ''
+        email: ''
       };
     }
   
+    // http://157.245.160.185:8000/api/users/
     componentDidMount() {
       if (this.state.logged_in) {
-        fetch('http://localhost:8000/core/current_user/', {
+        fetch('http://157.245.160.185:8000/api/current_user/', {
           headers: {
             Authorization: `JWT ${localStorage.getItem('token')}`
           }
         })
           .then(res => res.json())
           .then(json => {
-            this.setState({ username: json.username });
+            this.setState({ email: json.email });
           });
       }
     }
@@ -42,14 +43,14 @@ class Login extends Component {
           this.setState({
             logged_in: true,
             displayed_form: '',
-            username: json.user.username
+            email: json.user.email
           });
         });
     };
   
     handle_signup = (e, data) => {
       e.preventDefault();
-      fetch('http://localhost:8000/core/users/', {
+      fetch('http://157.245.160.185:8000/api/users/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -62,14 +63,14 @@ class Login extends Component {
           this.setState({
             logged_in: true,
             displayed_form: '',
-            username: json.username
+            email: json.email
           });
         });
     };
   
     handle_logout = () => {
       localStorage.removeItem('token');
-      this.setState({ logged_in: false, username: '' });
+      this.setState({ logged_in: false, email: '' });
     };
   
     display_form = form => {
@@ -101,7 +102,7 @@ class Login extends Component {
             {form}
             <h3>
             {this.state.logged_in
-                ? `Hello, ${this.state.username}`
+                ? `Hello, ${this.state.email}`
                 : 'Please Log In'}
             </h3>
         </div>
