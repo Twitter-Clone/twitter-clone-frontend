@@ -16,7 +16,8 @@ class Login extends Component {
     // http://157.245.160.185:8000/api/users/
     componentDidMount() {
       if (this.state.logged_in) {
-        fetch('http://157.245.160.185:8000/api/current_user/', {
+        //fetch('http://157.245.160.185:8000/api/current_user/', {
+        fetch('http://localhost:8000/tcapi/current_user/', {
           headers: {
             Authorization: `JWT ${localStorage.getItem('token')}`
           }
@@ -30,6 +31,7 @@ class Login extends Component {
   
     handle_login = (e, data) => {
       e.preventDefault();
+      //fetch('http://157.245.160.185:8000/token-auth/', {
       fetch('http://localhost:8000/token-auth/', {
         method: 'POST',
         headers: {
@@ -50,7 +52,8 @@ class Login extends Component {
   
     handle_signup = (e, data) => {
       e.preventDefault();
-      fetch('http://157.245.160.185:8000/api/users/', {
+      //fetch('http://157.245.160.185:8000/api/users/', {
+      fetch('http://localhost:8000/tcapi/users/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -111,4 +114,5 @@ class Login extends Component {
   }
   
   export default Login;
+
   
