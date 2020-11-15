@@ -11,7 +11,7 @@ export default class Feed extends Component {
 
     componentDidMount() {
         this.TweetList();
-        // this.UserList();
+        this.UserList();
     }
 
     TweetList() {
@@ -28,14 +28,19 @@ export default class Feed extends Component {
         .catch(console.log);
     }
 
-    // UserList() {
-    //     fetch('http://157.245.160.185:8000/tcapi/current_user/')
-    //     .then(res => res.json())
-    //     .then((data) => {
-    //         this.setState({ users: data })
-    //     })
-    //     .catch(console.log);
-    // }
+    UserList() {
+        fetch('http://157.245.160.185:8000/tcapi/api/users/', {
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `JWT ${this.props.data["logged_in"]}`
+            }
+        })
+        .then(res => res.json())
+        .then((data) => {
+            this.setState({ users: data })
+        })
+        .catch(console.log);
+    }
 
     getUserById = (id) => this.state.users.find(({ userid }) => userid === id);
 
@@ -50,11 +55,15 @@ export default class Feed extends Component {
         // ));
 
         const newArray = this.state.tweets.map(item => item.tweet);
-        console.log(newArray);
-
 
         return (
-            false
+            <div>
+                {newArray.map((item, index) => (
+                    <div key={index}>
+                        <p>{item}</p>
+                    </div>
+                ))}
+            </div>
         )
 
         // return (
