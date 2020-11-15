@@ -75,7 +75,7 @@ class App extends Component {
   
     handle_signup = (e, data) => {
       e.preventDefault();
-      fetch('http://157.245.160.185:8000/tcapi/users/', {
+      fetch('http://157.245.160.185:8000/tcapi/api/users/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

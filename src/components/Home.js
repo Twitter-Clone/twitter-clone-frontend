@@ -21,7 +21,7 @@ export default class Home extends Component{
     }
 
     TweetList() {
-        fetch('http://157.245.160.185:8000/tcapi/api/posts')
+        fetch('http://157.245.160.185:8000/tcapi/api/posts/')
         .then(res => res.json())
         .then((data) => {
             this.setState({ tweets: data })

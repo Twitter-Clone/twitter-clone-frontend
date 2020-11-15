@@ -15,7 +15,7 @@ export default class Feed extends Component {
     }
 
     TweetList() {
-        fetch('http://157.245.160.185:8000/tcapi/api/posts', {
+        fetch('http://157.245.160.185:8000/tcapi/api/posts/', {
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `JWT ${this.props.data["logged_in"]}`
@@ -24,19 +24,18 @@ export default class Feed extends Component {
         .then(res => res.json())
         .then((data) => {
             this.setState({ tweets: data })
-            console.log(data);
         })
         .catch(console.log);
     }
 
-    UserList() {
-        fetch('http://157.245.160.185:8000/tcapi/current_user/')
-        .then(res => res.json())
-        .then((data) => {
-            this.setState({ users: data })
-        })
-        .catch(console.log);
-    }
+    // UserList() {
+    //     fetch('http://157.245.160.185:8000/tcapi/current_user/')
+    //     .then(res => res.json())
+    //     .then((data) => {
+    //         this.setState({ users: data })
+    //     })
+    //     .catch(console.log);
+    // }
 
     getUserById = (id) => this.state.users.find(({ userid }) => userid === id);
 
@@ -46,16 +45,16 @@ export default class Feed extends Component {
         //         <div class="tweet_box">
         //             <h1>{this.getUserById(item.userid_id)?.twitterhandle}</h1>
         //             <p>{item.tweet}</p>
-        //         </div>
+        //         </div>`
         //     </div>
         // ));
 
+        const newArray = this.state.tweets.map(item => item.tweet);
+        console.log(newArray);
+
 
         return (
-                // <>
-                //     { tweets }
-                // </>
-                true
+            false
         )
 
         // return (
