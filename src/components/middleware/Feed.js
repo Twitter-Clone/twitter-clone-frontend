@@ -42,34 +42,38 @@ export default class Feed extends Component {
         .catch(console.log);
     }
 
+    handleChange(){
+        console.log('handleChange');
+    }
+
+    handleClick(){
+        console.log('handleClick');
+    }
+
     getUserById = (id) => this.state.users.find(({ userid }) => userid === id);
 
     render() {
-        // const tweets = this.state.tweets.map((item, i) => (
-        //     <div>
-        //         <div class="tweet_box">
-        //             <h1>{this.getUserById(item.userid_id)?.twitterhandle}</h1>
-        //             <p>{item.tweet}</p>
-        //         </div>`
-        //     </div>
-        // ));
 
         const newArray = this.state.tweets.map(item => item.tweet);
 
         return (
             <div>
-                {newArray.map((item, index) => (
-                    <div key={index}>
-                        <p>{item}</p>
-                    </div>
-                ))}
+                <div>
+                    <input type="text" onChange={ this.handleChange } />
+                    <input
+                    type="button"
+                    value="Alert the text input"
+                    onClick={this.handleClick}
+                    />
+                </div>
+                <div>
+                    {newArray.map((item, index) => (
+                        <div key={index}>
+                            <p>{item}</p>
+                        </div>
+                    ))}
+                </div>
             </div>
         )
-
-        // return (
-        //     <section id="feed">
-        //         <div className="tweet">{ tweets }</div>
-        //     </section>
-        // )
     }
 }
