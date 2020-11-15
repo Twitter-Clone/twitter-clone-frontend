@@ -25,7 +25,7 @@ export default class Feed extends Component {
     }
 
     UserList() {
-        fetch('http://157.245.160.185:8000/tcapi/api/users')
+        fetch('http://157.245.160.185:8000/tcapi/current_user/')
         .then(res => res.json())
         .then((data) => {
             this.setState({ users: data })

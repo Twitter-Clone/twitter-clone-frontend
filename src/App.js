@@ -18,25 +18,6 @@ import {
     Route,
 } from "react-router-dom";
 
-function authenticated() {
-  return (
-    <div>
-            <main>
-                <Switch>
-                    <Route path='/' component={Home} />
-                    <Route path='/profile' component={Profile} />
-                    <Route path='/following' component={Following} />
-                    <Route path='/search' component={Search} />
-                </Switch>
-            </main>  
-        </div>
-  )
-};
-
-const decisionFalse = () => {
-  return console.log(false);
-};
-
 class App extends Component {
     constructor(props) {
       super(props);
@@ -143,7 +124,7 @@ class App extends Component {
                 {form}
                 <h3>
                 {this.state.logged_in
-                    ? authenticated()
+                    ? <Home />
                     : console.log(false)}
                 </h3>
             </div>
