@@ -20,7 +20,7 @@ function Nav(props) {
 export default Nav;
 
 Nav.propTypes = {
-  logged_in: PropTypes.bool.isRequired,
+  //logged_in: PropTypes.bool.isRequired,
   display_form: PropTypes.func.isRequired,
   handle_logout: PropTypes.func.isRequired
 };

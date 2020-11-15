@@ -4,6 +4,7 @@ import Home from './components/Home';
 import Profile from './components/Profile';
 import Following from './components/Following';
 import Search from './components/Search';
+import Feed from './components/middleware/Feed';
 
 
 import Nav from './components/Nav';
@@ -23,7 +24,7 @@ class App extends Component {
       super(props);
       this.state = {
         displayed_form: '',
-        logged_in: localStorage.getItem('token') ? true : false,
+        logged_in: localStorage.getItem('token'),
         username: ''
       };
     }
@@ -57,7 +58,7 @@ class App extends Component {
           localStorage.setItem('token', json.token);
           try {
             this.setState({
-                logged_in: true,
+                logged_in: localStorage.getItem('token'),
                 displayed_form: '',
                 username: json.user.username
               });
@@ -67,6 +68,10 @@ class App extends Component {
           
         });
     };
+
+    checkState(){
+      console.log(this.state)
+    }
   
     handle_signup = (e, data) => {
       e.preventDefault();
@@ -124,7 +129,8 @@ class App extends Component {
                 {form}
                 <h3>
                 {this.state.logged_in
-                    ? <Home />
+                    // ? <Feed data={this.state} />
+                    ? <Feed data={this.state} />
                     : console.log(false)}
                 </h3>
             </div>

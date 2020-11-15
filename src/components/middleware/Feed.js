@@ -11,11 +11,16 @@ export default class Feed extends Component {
 
     componentDidMount() {
         this.TweetList();
-        this.UserList();
+        // this.UserList();
     }
 
     TweetList() {
-        fetch('http://157.245.160.185:8000/tcapi/api/posts')
+        fetch('http://157.245.160.185:8000/tcapi/api/posts', {
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `JWT ${this.props.data["logged_in"]}`
+            }
+        })
         .then(res => res.json())
         .then((data) => {
             this.setState({ tweets: data })
@@ -45,12 +50,12 @@ export default class Feed extends Component {
         //     </div>
         // ));
 
-        const tweets = this.state.tweets[0];
 
         return (
-            <>
-                { tweets }
-            </>
+                // <>
+                //     { tweets }
+                // </>
+                true
         )
 
         // return (
