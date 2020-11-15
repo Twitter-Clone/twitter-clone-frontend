@@ -15,16 +15,17 @@ export default class Feed extends Component {
     }
 
     TweetList() {
-        fetch('http://157.245.160.185:8000/api/posts')
+        fetch('http://157.245.160.185:8000/tcapi/api/posts')
         .then(res => res.json())
         .then((data) => {
             this.setState({ tweets: data })
+            console.log(data);
         })
         .catch(console.log);
     }
 
     UserList() {
-        fetch('http://157.245.160.185:8000/api/users')
+        fetch('http://157.245.160.185:8000/tcapi/api/users')
         .then(res => res.json())
         .then((data) => {
             this.setState({ users: data })
@@ -35,19 +36,27 @@ export default class Feed extends Component {
     getUserById = (id) => this.state.users.find(({ userid }) => userid === id);
 
     render() {
-        const tweets = this.state.tweets.map((item, i) => (
-            <div>
-                <div class="tweet_box">
-                    <h1>{this.getUserById(item.userid_id)?.twitterhandle}</h1>
-                    <p>{item.tweet}</p>
-                </div>
-            </div>
-        ));
+        // const tweets = this.state.tweets.map((item, i) => (
+        //     <div>
+        //         <div class="tweet_box">
+        //             <h1>{this.getUserById(item.userid_id)?.twitterhandle}</h1>
+        //             <p>{item.tweet}</p>
+        //         </div>
+        //     </div>
+        // ));
+
+        const tweets = this.state.tweets[0];
 
         return (
-            <section id="feed">
-                <div className="tweet">{ tweets }</div>
-            </section>
+            <>
+                { tweets }
+            </>
         )
+
+        // return (
+        //     <section id="feed">
+        //         <div className="tweet">{ tweets }</div>
+        //     </section>
+        // )
     }
 }
