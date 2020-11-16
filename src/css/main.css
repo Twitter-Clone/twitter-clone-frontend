@@ -26,6 +26,12 @@ body {
         "sidebar feed";
 }
 
+header {
+    width: 100%;
+    background: green;
+    height: 30px;
+}
+
 .sidebar {
     grid-area: sidebar;
 }

@@ -120,6 +120,9 @@ class App extends Component {
       }
       
       return (
+          <div>
+        <header>
+        </header>
         <div class="container">
             <nav class="sidebar">
                 <ul>
@@ -144,7 +147,7 @@ class App extends Component {
                 </div>
             </div>
         </div>
-
+</div>  
       );
     }
   }
