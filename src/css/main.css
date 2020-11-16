@@ -3,14 +3,18 @@
 }
   
 body {
-    --main-site-background: #f2f9f9;;
+    --main-site-background: #d8e0e0;
+    --twitter-color-dark: #263c3c;
     --twitter-color: #406564;
+    --twitter-color-light: #c5d0d0;
     --twitter-background-color: #f2f9f9;
     --main-font-color: #0c1414;
     --sidebar-background-color: #b2dfde;
     --component-background: #ffffff;
     --sand-color: #c2b280;
     --sidebar-link-hover: #e8f5fe;
+    --menu-hover: #537473;
+    --input-bg: #537473;
 
     background-color: var(--main-site-background);
 }
@@ -26,20 +30,28 @@ body {
         "sidebar feed";
 }
 
-header {
-    width: 100%;
-    background: green;
-    height: 80px;
-    display: block;
+.loginLinks {
+    /* ignore */
+    margin-top: 100px;
+    position: absolute;
+    bottom: 20px;
 }
 
 .sidebar {
     grid-area: sidebar;
+    background-color: var(--twitter-color);
+    height: 100vh;
+    position: relative;
 }
 
 .app {
     grid-area: feed;
-    background-color: #c2b280;
+    background-color: var(--twitter-color-light);
+    height: 100vh;
+}
+
+.loginText {
+    margin-bottom: 20px;
 }
 
 /* .app {
