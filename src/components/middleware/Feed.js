@@ -67,36 +67,33 @@ export default class Feed extends Component {
 
     sendToDatabase(newTweet){
 
+        // Get users ID
         console.log(this.state.users);
         const id = this.getUserId(this.props.data["username"]);
-        console.log(id);
 
+        // Generate a random postid
+        var newPostId = Math.floor(Math.random() * Math.floor(10000))
 
+        // Create data object (postid, tweet, userid)
+        var newTweetObject = {
+            "postid": newPostId,
+            "tweet": newTweet,
+            "userid_id": id
+        }        
 
-        // get users ID
-        // const find_username = this.props.data["username"];
-        // getUserById = (id) => this.state.users.find(({ userid }) => userid === id);
-
-        // // Create data object (postid, tweet, userid)
-        // var newTweetObject = {
-        //     "postid": postid,
-        //     "tweet": newTweet,
-        //     "userid_id": userid_id
-        // }        
-
-        // // Send object to the server
-        // try {
-        //     fetch('http://157.245.160.185:8000/tcapi/api/posts/', {
-        //         method: 'POST',
-        //         headers: {
-        //             'Content-Type': 'application/json',
-        //             'Authorization': `JWT ${this.props.data["logged_in"]}`
-        //         },
-        //         body: JSON.stringify(newTweetObject)
-        //     }) 
-        // } catch(e){
-        //     console.log(e);
-        // }
+        // Send object to the server
+        try {
+            fetch('http://157.245.160.185:8000/tcapi/api/postnew/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `JWT ${this.props.data["logged_in"]}`
+                },
+                body: JSON.stringify(newTweetObject)
+            }) 
+        } catch(e){
+            console.log(e);
+        }
     }
 
     handleChange(value) {
