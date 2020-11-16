@@ -14,9 +14,9 @@ export default class Feed extends Component {
         var newTweet = '';
     }
 
-    componentDidMount() {
-        this.TweetList();
-        this.UserList();
+    async componentDidMount() {
+        await this.TweetList();
+        await this.UserList();
     }
 
     async TweetList() {
@@ -116,12 +116,13 @@ export default class Feed extends Component {
 
     render() {
 
-        var newArray = []
-        var newArrayReversed = []
-        const onOff = true
+        var onOff = true;
 
-        
         if(onOff){
+
+            var newArray = []
+            var newArrayReversed = []
+
             newArray = this.state.tweets.map(item => item)
             newArrayReversed = newArray.reverse();
         }
