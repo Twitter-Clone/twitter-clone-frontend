@@ -5,8 +5,12 @@ export default class Feed extends Component {
         super(props);
         this.state = {
             tweets: [],
-            users: []
+            users: [],
+            word: '',
+            new: ''
         }
+
+        var newTweet = '';
     }
 
     componentDidMount() {
@@ -42,15 +46,57 @@ export default class Feed extends Component {
         .catch(console.log);
     }
 
-    handleChange(){
-        console.log('handleChange');
+    
+
+    increment() {
+        this.setState({
+            word: this.state.new,
+            new: '',
+        })
+        
+        this.newTweet = this.state.new
+
+        this.sendToDatabase(this.newTweet);
     }
 
-    handleClick(){
-        console.log('handleClick');
+    sendToDatabase(newTweet){
+
+        console.log(this.state.users);
+
+
+
+
+        // get users ID
+        // const find_username = this.props.data["username"];
+        // getUserById = (id) => this.state.users.find(({ userid }) => userid === id);
+
+        // // Create data object (postid, tweet, userid)
+        // var newTweetObject = {
+        //     "postid": postid,
+        //     "tweet": newTweet,
+        //     "userid_id": userid_id
+        // }        
+
+        // // Send object to the server
+        // try {
+        //     fetch('http://157.245.160.185:8000/tcapi/api/posts/', {
+        //         method: 'POST',
+        //         headers: {
+        //             'Content-Type': 'application/json',
+        //             'Authorization': `JWT ${this.props.data["logged_in"]}`
+        //         },
+        //         body: JSON.stringify(newTweetObject)
+        //     }) 
+        // } catch(e){
+        //     console.log(e);
+        // }
     }
 
-    getUserById = (id) => this.state.users.find(({ userid }) => userid === id);
+    handleChange(value) {
+        this.setState({
+            new: value
+        });
+    }
 
     render() {
 
@@ -59,15 +105,12 @@ export default class Feed extends Component {
         return (
             <div>
                 <div>
-                    <input type="text" onChange={ this.handleChange } />
-                    <input
-                    type="button"
-                    value="Alert the text input"
-                    onClick={this.handleClick}
-                    />
+                    <p>The message is: { this.state.word } </p>
+                    <input type="text" value={this.state.new} onChange={(e) =>this.handleChange(e.target.value)} />
+                    <input type="submit" value="Add Word" onClick={() => this.increment()} />
                 </div>
                 <div>
-                    {newArray.map((item, index) => (
+                    {newArray.map((item, index) => (    
                         <div key={index}>
                             <p>{item}</p>
                         </div>
