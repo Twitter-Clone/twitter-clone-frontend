@@ -46,8 +46,6 @@ export default class Feed extends Component {
         .catch(console.log);
     }
 
-    
-
     increment() {
         this.setState({
             word: this.state.new,
@@ -59,10 +57,19 @@ export default class Feed extends Component {
         this.sendToDatabase(this.newTweet);
     }
 
+    getUserId(username){
+        for(var i = 0; i < this.state.users.length; i++){
+            if(this.state.users[i].username === username){
+                return this.state.users[i].id;
+            }
+        }
+    }
+
     sendToDatabase(newTweet){
 
         console.log(this.state.users);
-
+        const id = this.getUserId(this.props.data["username"]);
+        console.log(id);
 
 
 
@@ -100,23 +107,32 @@ export default class Feed extends Component {
 
     render() {
 
-        const newArray = this.state.tweets.map(item => item.tweet);
+        var newArray = null
+        const onOff = true
 
-        return (
-            <div>
+        if(onOff){
+            newArray = this.state.tweets.map(item => item.tweet);
+        }
+
+        if(onOff){
+            return (
                 <div>
-                    <p>The message is: { this.state.word } </p>
-                    <input type="text" value={this.state.new} onChange={(e) =>this.handleChange(e.target.value)} />
-                    <input type="submit" value="Add Word" onClick={() => this.increment()} />
+                    <div>
+                        <p>The message is: { this.state.word } </p>
+                        <input type="text" value={this.state.new} onChange={(e) =>this.handleChange(e.target.value)} />
+                        <input type="submit" value="Add Word" onClick={() => this.increment()} />
+                    </div>
+                    <div>
+                        {newArray.map((item, index) => (    
+                            <div key={index}>
+                                <p>{item}</p>
+                            </div>
+                        ))}
+                    </div>
                 </div>
-                <div>
-                    {newArray.map((item, index) => (    
-                        <div key={index}>
-                            <p>{item}</p>
-                        </div>
-                    ))}
-                </div>
-            </div>
-        )
+            )
+        } else {
+            return true;
+        }
     }
 }

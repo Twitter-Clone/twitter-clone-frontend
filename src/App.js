@@ -25,7 +25,8 @@ class App extends Component {
       this.state = {
         displayed_form: '',
         logged_in: localStorage.getItem('token'),
-        username: ''
+        username: '',
+        id: ''
       };
     }
 
@@ -39,7 +40,7 @@ class App extends Component {
         })
           .then(res => res.json())
           .then(json => {
-            this.setState({ username: json.username });
+            this.setState({ username: json.username, id: json.id});
           });
       }
     }
