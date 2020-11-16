@@ -132,7 +132,7 @@ export default class Feed extends Component {
                 <div>
                     <div class="tweetInput">
                         <center>
-                            <textarea rows="5" cols="50" value={this.state.new} onChange={(e) =>this.handleChange(e.target.value)}>Enter your tweet</textarea>
+                            <textarea placeholder="Type your tweet..." rows="5" cols="50" value={this.state.new} onChange={(e) =>this.handleChange(e.target.value)}>Enter your tweet</textarea>
                         </center>
                         <input type="submit" value="Tweet" onClick={() => this.increment()} />
                     </div>

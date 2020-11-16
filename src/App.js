@@ -122,6 +122,12 @@ class App extends Component {
       return (
           <div>
         <header>
+          <Nav
+            logged_in={this.state.logged_in}
+            display_form={this.display_form}
+            handle_logout={this.handle_logout}
+            />
+            {form}
         </header>
         <div class="container">
             <nav class="sidebar">
@@ -133,12 +139,6 @@ class App extends Component {
                 </ul>
             </nav>
             <div class="app">
-                <Nav
-                logged_in={this.state.logged_in}
-                display_form={this.display_form}
-                handle_logout={this.handle_logout}
-                />
-                {form}
                 <div>
                 {this.state.logged_in
                     // ? <Feed data={this.state} />

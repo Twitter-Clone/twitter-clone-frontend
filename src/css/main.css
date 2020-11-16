@@ -29,7 +29,8 @@ body {
 header {
     width: 100%;
     background: green;
-    height: 30px;
+    height: 80px;
+    display: block;
 }
 
 .sidebar {
