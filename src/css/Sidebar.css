@@ -17,10 +17,31 @@ ul {
     font-weight: 800;
     font-size: 20px;
     margin-right: 20px;
+    text-decoration: none;
+    color: #ffffff;
+    padding: 10px;
 }
 
 .main-nav:hover {
-    background-color: var(--sidebar-link-hover);
+    background-color: var(--menu-hover);
     border-radius: 30px;
     transition: color 0.1s ease-out;
+}
+
+.mainIcon {
+    width: 20px;
+    padding-top: 15px;
+}
+
+.loginText {
+    color: #c5d0d0;
+}
+
+.inputArea {
+    border: none;
+    border-bottom: solid 3px #395a5a;
+    background: var(--input-bg);
+    padding: 10px;
+    width: 100%;
+    margin: 0 auto;
 }

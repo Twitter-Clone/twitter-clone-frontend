@@ -1,6 +1,8 @@
 import React from 'react';
 import {Route, Link, Switch} from 'react-router-dom';
 
+import HomeIcon from '@material-ui/icons/Home';
+
 import '../css/Sidebar.css';
 
 import Home from './Home';
