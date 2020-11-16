@@ -2,3 +2,24 @@
     grid-column: 2 / 3;
     grid-row: 1;
 }
+
+.single-tweet {
+    margin-top: 20px;
+    margin: 0 auto;
+    background-color: white;
+    width: 90%;
+    padding: 10px;
+    border: solid 1px;
+    margin-bottom: 20px;
+}
+
+.tweetInput {
+    margin: 0 auto;
+    text-align: right;
+    margin-bottom: 10px;
+}
+
+textarea {
+    width: 90%;
+    display: block;
+}

@@ -17,6 +17,7 @@ import {
     BrowserRouter as Router,
     Switch,
     Route,
+    Link,
 } from "react-router-dom";
 
 class App extends Component {
@@ -119,20 +120,28 @@ class App extends Component {
       }
       
       return (
-        <div>
-            <div className="App">
+        <div class="container">
+            <nav class="sidebar">
+                <ul>
+                    <li><Link to='/' class='main-nav'>Home</Link></li>
+                    <li><Link to='/profile' class='main-nav'>Profile</Link></li>
+                    <li><Link to='/following' class='main-nav'>Following</Link></li>
+                    <li><Link to='/search' class='main-nav'>Search</Link></li>
+                </ul>
+            </nav>
+            <div class="app">
                 <Nav
                 logged_in={this.state.logged_in}
                 display_form={this.display_form}
                 handle_logout={this.handle_logout}
                 />
                 {form}
-                <h3>
+                <div>
                 {this.state.logged_in
                     // ? <Feed data={this.state} />
                     ? <Feed data={this.state} />
                     : console.log(false)}
-                </h3>
+                </div>
             </div>
         </div>
 

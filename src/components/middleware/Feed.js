@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 
+import '../../css/Feed.css'
+
 export default class Feed extends Component {
     constructor(props) {
         super(props);
@@ -128,14 +130,14 @@ export default class Feed extends Component {
         if(onOff){
             return (
                 <div>
-                    <div>
-                        <p>The message is: { this.state.word } </p>
-                        <input type="text" value={this.state.new} onChange={(e) =>this.handleChange(e.target.value)} />
-                        <input type="submit" value="Add Word" onClick={() => this.increment()} />
+                    <div class="tweetInput">
+                        <textarea rows="5" cols="50" value={this.state.new} onChange={(e) =>this.handleChange(e.target.value)}>Enter your tweet</textarea>
+                        
+                        <input type="submit" value="Tweet" onClick={() => this.increment()} />
                     </div>
                     <div>
                         {newArrayReversed.map((item, index) => (    
-                            <div key={index}>
+                            <div class="single-tweet" key={index}>
                                 <h1>{this.findUsername(item.userid_id)}</h1>
                                 <p>{item.tweet}</p>
                             </div>
