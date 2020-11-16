@@ -11,8 +11,6 @@ export default class Feed extends Component {
             word: '',
             new: ''
         }
-
-        var data = []
         var newTweet = '';
     }
 
@@ -21,8 +19,8 @@ export default class Feed extends Component {
         this.UserList();
     }
 
-    TweetList() {
-        fetch('http://157.245.160.185:8000/tcapi/api/posts/', {
+    async TweetList() {
+        await fetch('http://157.245.160.185:8000/tcapi/api/posts/', {
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `JWT ${this.props.data["logged_in"]}`
@@ -35,8 +33,8 @@ export default class Feed extends Component {
         .catch(console.log);
     }
 
-    UserList() {
-        fetch('http://157.245.160.185:8000/tcapi/api/users/', {
+    async UserList() {
+        await fetch('http://157.245.160.185:8000/tcapi/api/users/', {
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `JWT ${this.props.data["logged_in"]}`
