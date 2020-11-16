@@ -116,7 +116,7 @@ export default class Feed extends Component {
 
     render() {
 
-        var newArray = null
+        var newArray = []
         var newArrayReversed = []
         const onOff = true
 
