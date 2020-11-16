@@ -68,7 +68,6 @@ export default class Feed extends Component {
     }
 
     sendToDatabase(newTweet){
-
         // Get users ID
         const id = this.getUserId(this.props.data["username"]);
 
@@ -122,6 +121,7 @@ export default class Feed extends Component {
         var newArrayReversed = []
         const onOff = true
 
+        
         if(onOff){
             newArray = this.state.tweets.map(item => item)
             newArrayReversed = newArray.reverse();
