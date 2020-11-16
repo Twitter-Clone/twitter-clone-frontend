@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, Children} from 'react';
 
 import '../../css/Feed.css'
 
@@ -123,7 +123,8 @@ export default class Feed extends Component {
             var newArray = []
             var newArrayReversed = []
 
-            newArray = this.state.tweets.map(item => item)
+            // newArray = this.state.tweets.map(item => item)
+            var newArray = Object.values(this.state.tweets);
             newArrayReversed = newArray.reverse();
         }
 
