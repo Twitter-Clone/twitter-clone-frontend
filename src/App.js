@@ -75,28 +75,29 @@ class App extends Component {
         });
     };
 
+
+
     checkState(){
       console.log(this.state)
     }
   
     handle_signup = (e, data) => {
+
       e.preventDefault();
-      fetch('http://157.245.160.185:8000/tcapi/api/users/', {
+      fetch('http://157.245.160.185:8000/tcapi/users/', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify(data)
-      })
-        .then(res => res.json())
-        .then(json => {
+      }).then(res => res.json()).then(json => {
           localStorage.setItem('token', json.token);
           this.setState({
             logged_in: true,
             displayed_form: '',
             username: json.username
           });
-        });
+        }).then(() => {window.location.reload(false)});
     };
   
     handle_logout = () => {
@@ -119,10 +120,12 @@ class App extends Component {
           break;
         case 'signup':
           form = <SignupForm handle_signup={this.handle_signup} />;
+
           break;
         default:
           form = null;
       }
+      
       
       /* return */
       return (
