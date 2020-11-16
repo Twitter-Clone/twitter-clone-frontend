@@ -12,6 +12,7 @@ export default class Feed extends Component {
             new: ''
         }
 
+        var data = []
         var newTweet = '';
     }
 
