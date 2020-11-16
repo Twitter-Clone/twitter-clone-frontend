@@ -68,7 +68,6 @@ export default class Feed extends Component {
     sendToDatabase(newTweet){
 
         // Get users ID
-        console.log(this.state.users);
         const id = this.getUserId(this.props.data["username"]);
 
         // Generate a random postid
@@ -105,6 +104,16 @@ export default class Feed extends Component {
         });
     }
 
+    // findUsername = (id) => this.state.users.find(({ userid_id }) => userid_id === id);
+
+    findUsername(_id){
+        for(var i = 0; i < this.state.users.length; i++){
+            if(this.state.users[i].id === _id){
+                return this.state.users[i].username
+            }
+        }
+    }
+
     render() {
 
         var newArray = null
@@ -112,7 +121,7 @@ export default class Feed extends Component {
         const onOff = true
 
         if(onOff){
-            newArray = this.state.tweets.map(item => item.tweet);
+            newArray = this.state.tweets.map(item => item)
             newArrayReversed = newArray.reverse();
         }
 
@@ -127,7 +136,8 @@ export default class Feed extends Component {
                     <div>
                         {newArrayReversed.map((item, index) => (    
                             <div key={index}>
-                                <p>{item}</p>
+                                <h1>{this.findUsername(item.userid_id)}</h1>
+                                <p>{item.tweet}</p>
                             </div>
                         ))}
                     </div>
