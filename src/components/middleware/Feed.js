@@ -94,6 +94,9 @@ export default class Feed extends Component {
         } catch(e){
             console.log(e);
         }
+
+        // Reload page for new feed with added tweet
+        window.location.reload(false);
     }
 
     handleChange(value) {
@@ -105,10 +108,12 @@ export default class Feed extends Component {
     render() {
 
         var newArray = null
+        var newArrayReversed = []
         const onOff = true
 
         if(onOff){
             newArray = this.state.tweets.map(item => item.tweet);
+            newArrayReversed = newArray.reverse();
         }
 
         if(onOff){
@@ -120,7 +125,7 @@ export default class Feed extends Component {
                         <input type="submit" value="Add Word" onClick={() => this.increment()} />
                     </div>
                     <div>
-                        {newArray.map((item, index) => (    
+                        {newArrayReversed.map((item, index) => (    
                             <div key={index}>
                                 <p>{item}</p>
                             </div>
