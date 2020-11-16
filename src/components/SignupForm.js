@@ -16,7 +16,8 @@ class SignupForm extends React.Component {
       return newState;
     });
   };
-
+  
+  /* Render */
   render() {
     return (
       <form onSubmit={e => this.props.handle_signup(e, this.state)}>
