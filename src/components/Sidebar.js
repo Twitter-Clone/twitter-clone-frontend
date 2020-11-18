@@ -1,32 +1,22 @@
 import React from 'react';
-import {Route, Link, Switch, BrowserRouter as Router} from 'react-router-dom';
-
-import HomeIcon from '@material-ui/icons/Home';
+import { Link, BrowserRouter as Router} from 'react-router-dom';
 
 import '../css/Sidebar.css';
 
-import Home from './Home';
-import Profile from './Profile';
-import Following from './Following';
-import Search from './Search';
+import HomeIcon from '@material-ui/icons/Home';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import SupervisorAccountIcon from '@material-ui/icons/SupervisorAccount';
+import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 
 export default function Sidebar() {
     return (
-        <Router>
-            <div>
-                <div>
-                    <nav>
-                        <ul>
-                            <li><Link to='/home' class='main-nav'>Home</Link></li>
-                            <li><Link to='/profile' class='main-nav'>Profile</Link></li>
-                            <li><Link to='/following' class='main-nav'>Following</Link></li>
-                            <li><Link to='/search' class='main-nav'>Search</Link></li>
-                        </ul>
-                    </nav>
-                </div> 
-            </div>
-        </Router>
+        <div>
+            <ul class="navSidebar">
+                <li class="mainNav"><HomeIcon class="mainIcon" style={{ fill: "white" }}/><Link to='/' class='main-nav'>Home</Link></li>
+                <li><AccountCircleIcon class="mainIcon" style={{ fill: "white" }} /><Link to='/profile' class='main-nav'>Profile</Link></li>
+                <li><SupervisorAccountIcon class="mainIcon" style={{ fill: "white" }} /><Link to='/following' class='main-nav'>Following</Link></li>
+                <li><MoreHorizIcon class="mainIcon" style={{ fill: "white" }} /><Link to='/more' class="main-nav">More</Link></li>
+            </ul>
+        </div>
     );
 }
-
-/* ignore */

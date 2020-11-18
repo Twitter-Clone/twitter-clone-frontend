@@ -6,11 +6,11 @@ import Following from './components/Following';
 import Search from './components/Search';
 import Feed from './components/middleware/Feed';
 
+
 import HomeIcon from '@material-ui/icons/Home';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import SupervisorAccountIcon from '@material-ui/icons/SupervisorAccount';
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
-
 
 import Nav from './components/Nav';
 import LoginForm from './components/LoginForm';
@@ -24,6 +24,7 @@ import {
     Route,
     Link,
 } from "react-router-dom";
+import Sidebar from './components/Sidebar';
 
 class App extends Component {
     constructor(props) {
@@ -132,38 +133,52 @@ class App extends Component {
           <div>
         <div class="container">
             <nav class="sidebar">
-                <Router>
-                    <ul class="navSidebar">
-                        <li class="mainNav"><HomeIcon class="mainIcon" style={{ fill: "white" }}/><Link to='/' class='main-nav'>Home</Link></li>
-                        <li><AccountCircleIcon class="mainIcon" style={{ fill: "white" }} /><Link to='/profile' class='main-nav'>Profile</Link></li>
-                        <li><SupervisorAccountIcon class="mainIcon" style={{ fill: "white" }} /><Link to='/following' class='main-nav'>Following</Link></li>
-                        <li><MoreHorizIcon class="mainIcon" style={{ fill: "white" }} /><Link to='/more' class="main-nav">More</Link></li>
-                    </ul>
-                    <Switch>
-                        <Route path='/home' component={Home} />
-                        <Route path='/profile' component={Profile} />
-                        <Route path='/following' component={Following} />
-                        <Route path='/search' component={Search} />
-                    </Switch>
-                    <div class="loginLinks">
-                    <div class="loginText">
-                        <Nav logged_in={this.state.logged_in} display_form={this.display_form} handle_logout={this.handle_logout} />
-                    </div>
-                    {form}
-                    </div>
-                </Router>
+                <Sidebar />
+                <div class="loginLinks">
+                <div class="loginText">
+                    <Nav logged_in={this.state.logged_in} display_form={this.display_form} handle_logout={this.handle_logout} />
+                </div>
+                {form}
+                </div>
             </nav>
             
             <div class="app">
                 <div>
-                {this.state.logged_in
-                    // ? <Feed data={this.state} />
-                    ? <Feed data={this.state} />
-                    : console.log(false)}
+                  <Switch>
+                      <Route path='/' exact component={Feed}>
+                        <div id="mainFeedDiv">
+                            {this.state.logged_in
+                                ? <Feed data={this.state} />
+                                : console.log(false)}
+                        </div>
+                      </Route>
+                      <Route path='/profile' component={Profile} >
+                        <div id="mainFeedDiv">
+                            {this.state.logged_in
+                                ? <Profile data={this.state} />
+                                : console.log(false)}
+                        </div>
+                      </Route>
+                      <Route path='/following' component={Following} >
+                        <div id="mainFeedDiv">
+                            {this.state.logged_in
+                                ? <Following data={this.state} />
+                                : console.log(false)}
+                        </div>
+                      </Route>
+                      <Route path='/search' component={Search} >
+                        <div id="mainFeedDiv">
+                            {this.state.logged_in
+                                ? <Search data={this.state} />
+                                : console.log(false)}
+                        </div>
+                      </Route>
+                  </Switch>
+                  
                 </div>
             </div>
         </div>
-</div>  
+      </div>  
       );
     }
   }
