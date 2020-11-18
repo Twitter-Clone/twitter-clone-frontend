@@ -67,6 +67,7 @@ export default class Feed extends Component {
     }
 
     sendToDatabase(newTweet){
+
         // Get users ID
         const id = this.getUserId(this.props.data["username"]);
 
