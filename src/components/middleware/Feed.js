@@ -58,22 +58,6 @@ export default class Feed extends Component {
         this.sendToDatabase(this.newTweet);
     }
 
-    async sendToServer(newTweetObject){
-        // Send object to the server
-        try {
-            await fetch('http://157.245.160.185:8000/tcapi/api/postnew/', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `JWT ${this.props.data["logged_in"]}`
-                },
-                body: JSON.stringify(newTweetObject)
-            }) 
-        } catch(e){
-            console.log('This is from the fetch of sendToDatabase: ' + e);
-        }
-    }
-
     getUserId(username){
         for(var i = 0; i < this.state.users.length; i++){
             if(this.state.users[i].username === username){
@@ -97,7 +81,19 @@ export default class Feed extends Component {
             "userid_id": id
         }        
 
-        await this.sendToServer(newTweetObject);
+        // Send object to the server
+        try {
+            await fetch('http://157.245.160.185:8000/tcapi/api/postnew/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `JWT ${this.props.data["logged_in"]}`
+                },
+                body: JSON.stringify(newTweetObject)
+            }) 
+        } catch(e){
+            console.log('This is from the fetch of sendToDatabase: ' + e);
+        }
 
         // Reload page for new feed with added tweet
         window.location.reload(false);
