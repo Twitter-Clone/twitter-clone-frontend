@@ -12,9 +12,7 @@ export default class Profile extends React.Component {
     }
     
     componentWillMount() {
-        this.setState({
-            isMenuOpened: false
-        })
+        
     }
 
     componentDidMount() {
