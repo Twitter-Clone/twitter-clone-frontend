@@ -48,10 +48,15 @@ export default class Feed extends Component {
     }
 
     increment() {
+        // Attempting to fix the issue of no first tweets being sent
+        this.setState({
+            word: ''
+        });
+
         this.setState({
             word: this.state.new,
             new: '',
-        })
+        });
         
         this.newTweet = this.state.new
 
@@ -92,7 +97,7 @@ export default class Feed extends Component {
                 body: JSON.stringify(newTweetObject)
             }) 
         } catch(e){
-            console.log(e);
+            console.log('This is from the fetch of sendToDatabase: ' + e);
         }
 
         // Reload page for new feed with added tweet
