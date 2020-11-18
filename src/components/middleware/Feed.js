@@ -53,14 +53,14 @@ export default class Feed extends Component {
             word: ''
         });
 
+        // Setting setState as an away function to try and fix no first tweets being sent
         this.setState({
             word: this.state.new,
             new: '',
+        }).then(this.newTweet = this.state.new).then(this.sendToDatabase(this.newTweet))
+        .catch((e) => {
+            return e;
         });
-        
-        this.newTweet = this.state.new
-
-        this.sendToDatabase(this.newTweet);
     }
 
     getUserId(username){

@@ -1,5 +1,5 @@
 import React from 'react';
-import {Route, Link, Switch, Router} from 'react-router-dom';
+import {Route, Link, Switch, BrowserRouter as Router} from 'react-router-dom';
 
 import HomeIcon from '@material-ui/icons/Home';
 
@@ -23,17 +23,13 @@ export default function Sidebar() {
                             <li><Link to='/search' class='main-nav'>Search</Link></li>
                         </ul>
                     </nav>
+                    <Switch>
+                        <Route path='/home' component={Home} />
+                        <Route path='/profile' component={Profile} />
+                        <Route path='/following' component={Following} />
+                        <Route path='/search' component={Search} />
+                    </Switch>
                 </div> 
-                {/* <div>
-                    <main>
-                        <Switch>
-                            <Route path='/home' component={Home} />
-                            <Route path='/profile' component={Profile} />
-                            <Route path='/following' component={Following} />
-                            <Route path='/search' component={Search} />
-                        </Switch>
-                    </main>  
-                </div> */}
             </div>
         </Router>
     );

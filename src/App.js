@@ -19,7 +19,6 @@ import SignupForm from './components/SignupForm';
 import './css/main.css';
 
 import {
-    BrowserRouter as Router,
     Switch,
     Route,
     Link,
@@ -138,12 +137,6 @@ class App extends Component {
                     <li><SupervisorAccountIcon class="mainIcon" style={{ fill: "white" }} /><Link to='/following' class='main-nav'>Following</Link></li>
                     <li><MoreHorizIcon class="mainIcon" style={{ fill: "white" }} /><Link to='/more' class="main-nav">More</Link></li>
                 </ul>
-                <Switch>
-                    <Route path='/home' component={Home} />
-                    <Route path='/profile' component={Profile} />
-                    <Route path='/following' component={Following} />
-                    <Route path='/search' component={Search} />
-                </Switch>
                 <div class="loginLinks">
                   <div class="loginText">
                     <Nav logged_in={this.state.logged_in} display_form={this.display_form} handle_logout={this.handle_logout} />
@@ -151,6 +144,12 @@ class App extends Component {
                   {form}
                 </div>
             </nav>
+            <Switch>
+                <Route path='/home' component={Home} />
+                <Route path='/profile' component={Profile} />
+                <Route path='/following' component={Following} />
+                <Route path='/search' component={Search} />
+            </Switch>
             <div class="app">
                 <div>
                 {this.state.logged_in
