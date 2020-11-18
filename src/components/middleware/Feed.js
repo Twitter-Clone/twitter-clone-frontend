@@ -47,9 +47,13 @@ export default class Feed extends Component {
         .catch(console.log);
     }
 
-    async increment() {
+    increment() {
+        // Attempting to fix the issue of no first tweets being sent
+        this.setState({
+            word: ''
+        });
 
-        await this.setState({
+        this.setState({
             word: this.state.new,
             new: '',
         });
@@ -66,7 +70,7 @@ export default class Feed extends Component {
         }
     }
 
-    async sendToDatabase(newTweet){
+    sendToDatabase(newTweet){
 
         // Get users ID
         const id = this.getUserId(this.props.data["username"]);
@@ -83,7 +87,7 @@ export default class Feed extends Component {
 
         // Send object to the server
         try {
-            await fetch('http://157.245.160.185:8000/tcapi/api/postnew/', {
+            fetch('http://157.245.160.185:8000/tcapi/api/postnew/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -99,8 +103,8 @@ export default class Feed extends Component {
         window.location.reload(false);
     }
 
-    async handleChange(value) {
-        await this.setState({
+    handleChange(value) {
+        this.setState({
             new: value
         });
     }
