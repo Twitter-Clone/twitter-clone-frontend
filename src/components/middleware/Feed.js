@@ -47,20 +47,31 @@ export default class Feed extends Component {
         .catch(console.log);
     }
 
-    increment() {
-        // Attempting to fix the issue of no first tweets being sent
-        this.setState({
-            word: ''
-        });
+    async increment() {
 
-        // Setting setState as an away function to try and fix no first tweets being sent
-        this.setState({
+        await this.setState({
             word: this.state.new,
             new: '',
         });
         
         this.newTweet = this.state.new;
         this.sendToDatabase(this.newTweet);
+    }
+
+    async sendToServer(newTweetObject){
+        // Send object to the server
+        try {
+            await fetch('http://157.245.160.185:8000/tcapi/api/postnew/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `JWT ${this.props.data["logged_in"]}`
+                },
+                body: JSON.stringify(newTweetObject)
+            }) 
+        } catch(e){
+            console.log('This is from the fetch of sendToDatabase: ' + e);
+        }
     }
 
     getUserId(username){
@@ -71,7 +82,7 @@ export default class Feed extends Component {
         }
     }
 
-    sendToDatabase(newTweet){
+    async sendToDatabase(newTweet){
 
         // Get users ID
         const id = this.getUserId(this.props.data["username"]);
@@ -86,26 +97,14 @@ export default class Feed extends Component {
             "userid_id": id
         }        
 
-        // Send object to the server
-        try {
-            fetch('http://157.245.160.185:8000/tcapi/api/postnew/', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `JWT ${this.props.data["logged_in"]}`
-                },
-                body: JSON.stringify(newTweetObject)
-            }) 
-        } catch(e){
-            console.log('This is from the fetch of sendToDatabase: ' + e);
-        }
+        await this.sendToServer(newTweetObject);
 
         // Reload page for new feed with added tweet
         window.location.reload(false);
     }
 
-    handleChange(value) {
-        this.setState({
+    async handleChange(value) {
+        await this.setState({
             new: value
         });
     }

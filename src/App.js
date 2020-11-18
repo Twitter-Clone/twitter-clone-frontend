@@ -19,6 +19,7 @@ import SignupForm from './components/SignupForm';
 import './css/main.css';
 
 import {
+    BrowserRouter as Router,
     Switch,
     Route,
     Link,
@@ -131,24 +132,26 @@ class App extends Component {
           <div>
         <div class="container">
             <nav class="sidebar">
-                <ul class="navSidebar">
-                    <li class="mainNav"><HomeIcon class="mainIcon" style={{ fill: "white" }}/><Link to='/' class='main-nav'>Home</Link></li>
-                    <li><AccountCircleIcon class="mainIcon" style={{ fill: "white" }} /><Link to='/profile' class='main-nav'>Profile</Link></li>
-                    <li><SupervisorAccountIcon class="mainIcon" style={{ fill: "white" }} /><Link to='/following' class='main-nav'>Following</Link></li>
-                    <li><MoreHorizIcon class="mainIcon" style={{ fill: "white" }} /><Link to='/more' class="main-nav">More</Link></li>
-                </ul>
-                <Switch>
-                    <Route path='/home' component={Home} />
-                    <Route path='/profile' component={Profile} />
-                    <Route path='/following' component={Following} />
-                    <Route path='/search' component={Search} />
-            </Switch>
-                <div class="loginLinks">
-                  <div class="loginText">
-                    <Nav logged_in={this.state.logged_in} display_form={this.display_form} handle_logout={this.handle_logout} />
-                  </div>
-                  {form}
-                </div>
+                <Router>
+                    <ul class="navSidebar">
+                        <li class="mainNav"><HomeIcon class="mainIcon" style={{ fill: "white" }}/><Link to='/' class='main-nav'>Home</Link></li>
+                        <li><AccountCircleIcon class="mainIcon" style={{ fill: "white" }} /><Link to='/profile' class='main-nav'>Profile</Link></li>
+                        <li><SupervisorAccountIcon class="mainIcon" style={{ fill: "white" }} /><Link to='/following' class='main-nav'>Following</Link></li>
+                        <li><MoreHorizIcon class="mainIcon" style={{ fill: "white" }} /><Link to='/more' class="main-nav">More</Link></li>
+                    </ul>
+                    <Switch>
+                        <Route path='/home' component={Home} />
+                        <Route path='/profile' component={Profile} />
+                        <Route path='/following' component={Following} />
+                        <Route path='/search' component={Search} />
+                    </Switch>
+                    <div class="loginLinks">
+                    <div class="loginText">
+                        <Nav logged_in={this.state.logged_in} display_form={this.display_form} handle_logout={this.handle_logout} />
+                    </div>
+                    {form}
+                    </div>
+                </Router>
             </nav>
             
             <div class="app">

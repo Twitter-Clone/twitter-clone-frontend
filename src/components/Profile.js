@@ -11,6 +11,14 @@ export default class Profile extends React.Component {
         }
     }
     
+    // componentWillMount() {
+
+    // }
+
+    // componentDidMount() {
+    //     this.get_username();
+    // }
+
     get_username() {
         
     }

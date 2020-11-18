@@ -23,12 +23,6 @@ export default function Sidebar() {
                             <li><Link to='/search' class='main-nav'>Search</Link></li>
                         </ul>
                     </nav>
-                    <Switch>
-                        <Route path='/home' component={Home} />
-                        <Route path='/profile' component={Profile} />
-                        <Route path='/following' component={Following} />
-                        <Route path='/search' component={Search} />
-                    </Switch>
                 </div> 
             </div>
         </Router>
