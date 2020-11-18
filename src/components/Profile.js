@@ -1,7 +1,4 @@
-"use strict";
-
 import React, {Component} from 'react';
-import { OffCanvas, OffCanvasMenu, OffCanvasBody } from "react-offcanvas";
 
 import Sidebar from '../components/Sidebar';
 
@@ -40,7 +37,7 @@ export default class Profile extends React.Component {
     render() {
 
         return (
-            <OffCanvas
+            /*<OffCanvas
                 width={100}
                 transitionDuration={300}
                 isMenuOpened={this.state.isMenuOpened}
@@ -52,7 +49,7 @@ export default class Profile extends React.Component {
             >
                 <h1>your_username</h1>
                 <>
-                    {/* <Sidebar /> */}
+                    { <Sidebar /> }
                     <h1>
                         <a href="#" onClick={this.handleClick.bind(this)}>
                             Profile
@@ -79,12 +76,16 @@ export default class Profile extends React.Component {
                         </h1>
                 
             </OffCanvasMenu>
-            </OffCanvas>
+            </OffCanvas> */
+            <>
+                <Sidebar />
+                <h1>Profile</h1>
+            </>
         )
     }
 
-    handleClick()   {
+    /*handleClick()   {
         this.setState({ isMenuOpened: !this.state.isMenuOpened })
-    }
+    }*/
 
 }
