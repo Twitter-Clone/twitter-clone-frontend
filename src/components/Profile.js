@@ -10,14 +10,6 @@ export default class Profile extends React.Component {
             email:''
         }
     }
-    
-    componentWillMount() {
-        
-    }
-
-    componentDidMount() {
-        
-    }
 
     /*get_username() {
         var username = this.state.username;
