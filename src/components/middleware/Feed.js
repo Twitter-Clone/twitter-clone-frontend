@@ -57,10 +57,10 @@ export default class Feed extends Component {
         this.setState({
             word: this.state.new,
             new: '',
-        }).then(this.newTweet = this.state.new).then(this.sendToDatabase(this.newTweet))
-        .catch((e) => {
-            return e;
         });
+        
+        this.newTweet = this.state.new;
+        this.sendToDatabasethis.newTweet
     }
 
     getUserId(username){
