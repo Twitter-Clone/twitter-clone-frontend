@@ -60,7 +60,7 @@ export default class Feed extends Component {
         });
         
         this.newTweet = this.state.new;
-        this.sendToDatabasethis.newTweet
+        this.sendToDatabase(this.newTweet);
     }
 
     getUserId(username){
