@@ -63,19 +63,20 @@ export default class Profile extends React.Component {
             <OffCanvasMenu>
                 <p>your_username</p>
                     
-                        {/* document.getElementById('btn').onclick = function() {
-                            val = document.getElementById('imagename').value,
-                            src = 'http://webpage.com/images/' + val +'.png',
-                            img = document.createElement('img')
-                        }
-                        img.src = src;
-                        document.body.appendChild(img);
+                        <script>document.getElementById('btn').onclick = function() {
+                                // ? val = document.getElementById('imagename').value,
+                                //src = 'https://assets.newatlas.com/dims4/default/572b515/2147483647/strip/true/crop/1620x1080+150+0/resize/1200x800!/quality/90/?url=http%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2Farchive%2Fblue-whale-1.jpg',
+                                //img = document.createElement('img')
+                            }
+                            img.src = src;
+                            document.body.appendChild(img);
+                        </script>
                         
                         <h1>
                             <a href="#" onClick={this.handleClick.bind(this)}>
                                 Your Username Name
                             </a>{" "}
-                        </h1> */}
+                        </h1>
                 
             </OffCanvasMenu>
             </OffCanvas>

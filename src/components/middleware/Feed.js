@@ -47,7 +47,8 @@ export default class Feed extends Component {
         .catch(console.log);
     }
 
-    aincrement() {
+    // there was an a before increment?
+    increment() {
         // Attempting to fix the issue of no first tweets being sent
         this.setState({
             word: ''
