@@ -14,7 +14,6 @@ export default class Profile extends Component {
         }
         var newTweet = '';
     }
-<<<<<<< HEAD
 
     async componentDidMount() {
         await this.TweetList();
@@ -64,8 +63,6 @@ export default class Profile extends Component {
         this.newTweet = this.state.new;
         this.sendToDatabase(this.newTweet);
     }
-=======
->>>>>>> a84055fb8911558f00717c4c249659c89b9e22c5
 
     getUserId(username){
         for(var i = 0; i < this.state.users.length; i++){
