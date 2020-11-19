@@ -46,7 +46,6 @@ export default class SearchMiddleware extends Component {
 
         }
 
-
         return userTweet;
     }
 
