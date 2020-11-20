@@ -103,7 +103,7 @@ class App extends Component {
   
     handle_logout = () => {
       localStorage.removeItem('token');
-      this.setState({ logged_in: false, username: '' });
+      this.setState({ logged_in: false, username: '' , id: ''});
     };
   
     display_form = form => {

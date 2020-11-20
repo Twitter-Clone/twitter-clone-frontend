@@ -66,13 +66,12 @@ export default class Profile extends Component {
 
     getUserId(username){
         for(var i = 0; i < this.state.users.length; i++){
-            console.log("This is in getUserId: " + username);
             if(this.state.users.username === username){
                 return this.state.users[i].id;
             }
         }
     }
-
+    
     sendToDatabase(newTweet){
 
         // Get users ID
@@ -123,21 +122,21 @@ export default class Profile extends Component {
     }
 
     tweetsCurrentUser() {
-        var newArray = [];
         var currentUserTweets = [];
 
         //// newArray = this.state.tweets.map(item => item)
-        var newArray = Object.values(this.state.tweets);
-        var currentUserId = this.getUserId(this.state.users.username)
-        
-        for (const i of newArray.entries()) {
-            console.log(this.state.users.username)
-            if (currentUserId == this.state.tweets.userid_id) {
-                currentUserTweets = newArray[i];
+        var newArray = []
+        // Object.values(this.state.tweets);
+
+        var currentUserId = this.getUserId(this.state.users.id);
+
+        for(var i = 0; i < this.state.tweets.length; i++){
+            if(this.state.tweets[i].userid_id === currentUserId){
+                currentUserTweets.push(this.state.tweets[i]);
             }
         }
 
-        return newArray;
+        return currentUserTweets;
     }
 
     render() {
@@ -146,9 +145,7 @@ export default class Profile extends Component {
 
         if(onOff){
 
-            var currentUserTweets = this.tweetsCurrentUser();
-            var newArrayReversed = currentUserTweets.reverse();
-            //console.log(currentUserTweets);
+            //var newArrayReversed = currentUserTweets.reverse();
         }
 
         if(onOff){
@@ -161,7 +158,7 @@ export default class Profile extends Component {
                         <input type="submit" value="Tweet" onClick={() => this.increment()} />
                     </div>
                     <div>
-                        {currentUserTweets.map((item, index) => (    
+                        {this.tweetsCurrentUser().reverse().map((item, index) => (    
                                 <div class="single-tweet" key={index}>
                                     <h1>{this.findUsername(item.userid_id)}</h1>
                                     <p>{item.tweet}</p>
