@@ -5,16 +5,15 @@ import Profile from './components/Profile';
 import Following from './components/Following';
 import Search from './components/Search';
 import Feed from './components/middleware/Feed';
-
+import Sidebar from './components/Sidebar';
+import Nav from './components/Nav';
+import LoginForm from './components/LoginForm';
+import SignupForm from './components/SignupForm';
 
 import HomeIcon from '@material-ui/icons/Home';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import SupervisorAccountIcon from '@material-ui/icons/SupervisorAccount';
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
-
-import Nav from './components/Nav';
-import LoginForm from './components/LoginForm';
-import SignupForm from './components/SignupForm';
 
 import './css/main.css';
 
@@ -24,7 +23,7 @@ import {
     Route,
     Link,
 } from "react-router-dom";
-import Sidebar from './components/Sidebar';
+
 
 class App extends Component {
     constructor(props) {
