@@ -66,7 +66,7 @@ export default class Profile extends Component {
 
     getUserId(username){
         for(var i = 0; i < this.state.users.length; i++){
-            if(this.state.users.username === username){
+            if(this.state.users[i]["username"] === username){
                 return this.state.users[i].id;
             }
         }
@@ -124,11 +124,11 @@ export default class Profile extends Component {
     tweetsCurrentUser() {
         var currentUserTweets = [];
 
-        //// newArray = this.state.tweets.map(item => item)
-        var newArray = []
         // Object.values(this.state.tweets);
 
-        var currentUserId = this.getUserId(this.state.users.id);
+        // var currentUserId = this.getUserId(this.props.data["username"]);
+
+        var currentUserId = this.props.data["id"];
 
         for(var i = 0; i < this.state.tweets.length; i++){
             if(this.state.tweets[i].userid_id === currentUserId){
