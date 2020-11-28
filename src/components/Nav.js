@@ -1,6 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { Link } from 'react-router-dom';
+
+
 function Nav(props) {
   const logged_out_nav = (
     <ul>
@@ -11,7 +14,7 @@ function Nav(props) {
 
   const logged_in_nav = (
     <ul>
-      <li onClick={props.handle_logout}>logout</li>
+      <li onClick={props.handle_logout}><Link to="/">Logout</Link></li>
     </ul>
   );
   return <div>{props.logged_in ? logged_in_nav : logged_out_nav}</div>;

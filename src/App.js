@@ -70,6 +70,8 @@ class App extends Component {
                 displayed_form: '',
                 username: json.user.username
               });
+
+            window.location.reload();
           } catch(e) {
               console.log(e);
           }
@@ -98,12 +100,14 @@ class App extends Component {
             displayed_form: '',
             username: json.username
           });
-        }).then(() => {window.location.reload(false)});
+        }).then(() => {window.location.reload(true)});
     };
   
     handle_logout = () => {
+        <Route path="/" component={Feed}></Route>
       localStorage.removeItem('token');
       this.setState({ logged_in: false, username: '' , id: ''});
+      
     };
   
     display_form = form => {
@@ -129,7 +133,7 @@ class App extends Component {
       
       /* return */
       return (
-          <div>
+        <div>
         <div class="container">
             <nav class="sidebar">
                 <Sidebar />
@@ -151,10 +155,10 @@ class App extends Component {
                                 : console.log(false)}
                         </div>
                       </Route>
-                      <Route path='/profile' component={Profile} >
+                      <Route path='/profile' component={Profile}>
                         <div id="mainFeedDiv">
                             {this.state.logged_in
-                                ? <Profile data={this.state} />
+                                ? <Profile data={this.state} /> 
                                 : console.log(false)}
                         </div>
                       </Route>
@@ -177,7 +181,7 @@ class App extends Component {
                 </div>
             </div>
         </div>
-      </div>  
+        </div>
       );
     }
   }

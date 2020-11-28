@@ -49,7 +49,7 @@ export default class Profile extends Component {
     }
 
     // there was an a before increment?
-    increment() {
+    async increment() {
         // Attempting to fix the issue of no first tweets being sent
         this.setState({
             word: ''
@@ -61,18 +61,10 @@ export default class Profile extends Component {
         });
         
         this.newTweet = this.state.new;
-        this.sendToDatabase(this.newTweet);
-    }
-
-    getUserId(username){
-        for(var i = 0; i < this.state.users.length; i++){
-            if(this.state.users[i]["username"] === username){
-                return this.state.users[i].id;
-            }
-        }
+        await this.sendToDatabase(this.newTweet);
     }
     
-    sendToDatabase(newTweet){
+    async sendToDatabase(newTweet){
 
         // Get users ID
         const id = this.getUserId(this.props.data["username"]);
@@ -89,7 +81,7 @@ export default class Profile extends Component {
 
         // Send object to the server
         try {
-            fetch('http://157.245.160.185:8000/tcapi/api/postnew/', {
+            await fetch('http://157.245.160.185:8000/tcapi/api/postnew/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -102,7 +94,7 @@ export default class Profile extends Component {
         }
 
         // Reload page for new feed with added tweet
-        window.location.reload(false);
+        window.location.reload(true);
     }
 
     handleChange(value) {
@@ -122,12 +114,9 @@ export default class Profile extends Component {
     }
 
     tweetsCurrentUser() {
+
         var currentUserTweets = [];
-
-        // Object.values(this.state.tweets);
-
-        // var currentUserId = this.getUserId(this.props.data["username"]);
-
+        
         var currentUserId = this.props.data["id"];
 
         for(var i = 0; i < this.state.tweets.length; i++){

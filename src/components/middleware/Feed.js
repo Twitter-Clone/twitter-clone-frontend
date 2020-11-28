@@ -101,7 +101,7 @@ export default class Feed extends Component {
         }
 
         // Reload page for new feed with added tweet
-        window.location.reload(false);
+        window.location.reload(true);
     }
 
     handleChange(value) {
